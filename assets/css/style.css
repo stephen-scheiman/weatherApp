@@ -1,7 +1,17 @@
-div {
+/* div {
     border: 1px solid grey;
+} */
+
+#forecastBox{
+    margin-bottom: 100px;
 }
 
-#firstRowHeader {
-    margin-bottom: 150px;
+#forecastCard{
+    margin-bottom: 100px;
+}
+
+#fiveDayForecastBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
