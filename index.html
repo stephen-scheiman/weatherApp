@@ -21,22 +21,14 @@
         <form>  
             <div class="mb-3">
             <label for="locationField" class="form-label">Search Location</label>
-            <input type="text" class="form-control" id="locationField">
-            <div id="locationHelp" class="form-text">Input the location you'd like the weather for</div>
+            <input type="text" class="form-control" id="locationField" name="locationField">
+            <div id="locationHelp" class="form-text">Input City Name</div>
           </div>
         </form>
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+        <button type="button" class="btn btn-primary" id="searchButton">Search</button>
+        <h6>Prior Cities</h3>
+        <ul >
+            <li id="priorCities"></li>
         </ul>
       </div>
 
@@ -50,6 +42,7 @@
             </div>
 
         <div class="row">
+            <hr>
             <h2>Five Day Forecast</h2>
             <div class="container" id="fiveDayForecastBox">
               <div class="card" style="width: 18rem;">
