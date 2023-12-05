@@ -1,3 +1,9 @@
+var storageCount = localStorage.length;
+for (i=1; i<=storageCount; i++){
+  $("#priorCities").append("<li>" + localStorage.getItem(i) + "</li>");
+}
+var count = storageCount;
+
 //All the action happens when the Search button is clicked
 $("#searchButton").on("click", function () {
   // Get the city name from the user
@@ -21,9 +27,14 @@ $("#searchButton").on("click", function () {
       var latitude = data[0].lat;
       var longitude = data[0].lon;
       //add the city to the prior search list and local storage
-      $("#priorCities").append("<li>" + cityName + "</li>");
-      localStorage.setItem("city", cityName);
-
+      count++;
+      localStorage.setItem([count], cityName);
+      if (count<=10){
+      $("#priorCities").append("<li>" + localStorage.getItem(count) + "</li>");
+      } else {
+        count=1;
+      }
+      console.log(count);
       $('input[name="locationField"]').val("");
       //This variable will hold the current conditions for the searched city
       var currentConditionsURL =
