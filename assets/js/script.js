@@ -37,12 +37,32 @@ $("#searchButton").on("click", function () {
           return response.json();
         })
         .then(function (data) {
-          // var forecastTime = dayjs();
-          // var fcastText = document.getElementById("forecastText");
-          // fcastText.innerHTML = dayjs(forecastTime).format("MM/DD/YYYY hh:mm a");
-          var forecastText = data.main;
-          var fcastTextEl = document.getElementById("forecastText");
-          fcastTextEl.innerHTML = forecastText;
+          var locationEl = document.getElementById("location")
+          locationEl.innerHTML = "Current Weather Conditions in " + cityName;
+
+          var forecastTemp = data.main.temp;
+          var fcastTempEl = document.getElementById("forecastTemp");
+          fcastTempEl.innerHTML = "Temperature: " + forecastTemp + " degrees Farenheit";
+
+          var forecastHum = data.main.humidity;
+          var fcastHumEl = document.getElementById("forecastHum");
+          fcastHumEl.innerHTML = "Humidity: " +forecastHum+ " %";
+
+          var forecastPres = data.main.pressure;
+          var fcastPresEl = document.getElementById("forecastPres");
+          fcastPresEl.innerHTML = "Barometric Pressure: " +forecastPres+ " mb";
+
+          var forecastWind = data.wind.speed;
+          var fcastWindEl = document.getElementById("forecastWind");
+          fcastWindEl.innerHTML = "Wind Speed: " +forecastWind+ " mph";
+
+          var forecastSkies = data.weather[0].main;
+          var forecastSkiesIcon = data.weather[0].icon;
+          var forecastSkiesIconEl = document.getElementById("forecastSkiesIcon");
+          var iconsURL = "https://openweathermap.org/img/wn/" +forecastSkiesIcon+ "@2x.png"
+          forecastSkiesIconEl.setAttribute("src", iconsURL);
+          var fcastSkiesEl = document.getElementById("forecastSkies");
+          fcastSkiesEl.innerHTML = forecastSkies;
         });
     });
 

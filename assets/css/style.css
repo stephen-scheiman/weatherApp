@@ -7,7 +7,7 @@
 }
 
 #forecastCard{
-    margin-bottom: 100px;
+    margin-bottom: 10px;
 }
 
 #fiveDayForecastBox{
@@ -19,4 +19,8 @@
 #priorCities{
     text-align: start;
     margin-top: 50px;
+}
+
+.card-text {
+    line-height: normal;
 }

@@ -13,7 +13,6 @@
   <body>
     <div class="col-12 text-center">
       <h1>Stephen's Weather Dashboard</h1>
-      <hr>
     </div>
     <div class="row gx-5 mb-3 text-center" id="firstRowHeader">
       <div class="col-2" id="locationBox">
@@ -32,14 +31,17 @@
 
       <div class="col-10" id="forecastBox">
         <div class="card" style="width: 100%;">
-            <img src="..." class="card-img-top" alt="...">
             <div class="card-body" id="forecastCard">
-              <h5 class="card-title">Current Weather Conditions</h5>
-              <p class="card-text" id="forecastText">xxx</p>
+              <h5 class="card-title" id="location">Current Weather Conditions</h5>
+              <img id="forecastSkiesIcon"></img>
+              <p class="card-text" id="forecastSkies"></p>
+              <p class="card-text" id="forecastTemp"></p>
+              <p class="card-text" id="forecastHum"></p>
+              <p class="card-text" id="forecastPres"></p>
+              <p class="card-text" id="forecastWind"></p>
             </div>
 
         <div class="row">
-            <hr>
             <h2>Five Day Forecast</h2>
             <div class="container" id="fiveDayForecastBox">
               <div class="card" style="width: 18rem;">
