@@ -15,7 +15,7 @@ $("#searchButton").on("click", function () {
       var longitude = data[0].lon;
       console.log("Latitude: " + latitude);
       console.log("Longitude: " + longitude);
-      $("#priorCities").append(cityName);
+      $("#priorCities").append('<li>'+ cityName +'</li>');
       var forecastURL =
         "https://api.openweathermap.org/data/2.5/forecast?lat=" +
         latitude +
