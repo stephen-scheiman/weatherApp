@@ -8,6 +8,7 @@
 
 #forecastCard{
     margin-bottom: 10px;
+    height: 300px;
 }
 
 #fiveDayForecastBox{
@@ -23,4 +24,32 @@
 
 .card-text {
     line-height: normal;
+}
+
+#fiveDayCardOne {
+    white-space: pre;
+    align-items: center;
+}
+
+#fiveDayCardTwo {
+    white-space: pre;
+    align-items: center;
+}
+#fiveDayCardThree {
+    white-space: pre;
+    align-items: center;
+}
+#fiveDayCardFour {
+    white-space: pre;
+    align-items: center;
+}
+#fiveDayCardFive {
+    white-space: pre;
+    align-items: center;
+}
+
+
+.card img {
+   max-width: 50%;
+   height: auto;
 }
