@@ -1,9 +1,11 @@
 $( document ).ready(function() {
 var storageCount = localStorage.length;
+
 for (i=1; i<=storageCount; i++){
   $("#priorCities").append("<li>" + localStorage.getItem(i) + "</li>");
 }
 var count = storageCount;
+var numberCount = storageCount;
 
 //All the action happens when the Search button is clicked
 $("#searchButton").on("click", function () {
@@ -29,12 +31,19 @@ $("#searchButton").on("click", function () {
       var longitude = data[0].lon;
       //add the city to the prior search list and local storage
       count++;
+      numberCount++;
+
+      if(count > 10){
+        count = 1;
+      } 
       localStorage.setItem([count], cityName);
-      if (count<=10){
+
+      if (numberCount > 10){
+        $("#priorCities li:first").remove(); // removes first list item which is the oldest
+      } 
       $("#priorCities").append("<li>" + localStorage.getItem(count) + "</li>");
-      } else {
-        count=1;
-      }
+
+
       console.log(count);
       $('input[name="locationField"]').val("");
       //This variable will hold the current conditions for the searched city
@@ -91,5 +100,4 @@ $("#searchButton").on("click", function () {
   //   .then(function (data) {
   //     console.log(data);
   //   });
-});
 });
