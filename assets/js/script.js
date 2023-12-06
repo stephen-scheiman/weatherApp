@@ -1,3 +1,4 @@
+$( document ).ready(function() {
 var storageCount = localStorage.length;
 for (i=1; i<=storageCount; i++){
   $("#priorCities").append("<li>" + localStorage.getItem(i) + "</li>");
@@ -90,4 +91,5 @@ $("#searchButton").on("click", function () {
   //   .then(function (data) {
   //     console.log(data);
   //   });
+});
 });
