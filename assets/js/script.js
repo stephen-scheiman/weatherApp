@@ -1,8 +1,10 @@
 var storageCount = localStorage.length;
-for (i = 1; i <= storageCount; i++) {
+
+for (i=1; i<=storageCount; i++){
   $("#priorCities").append("<li>" + localStorage.getItem(i) + "</li>");
 }
 var count = storageCount;
+var numberCount = storageCount;
 
 //All the action happens when the Search button is clicked
 $("#searchButton").on("click", function () {
@@ -28,16 +30,17 @@ $("#searchButton").on("click", function () {
       var longitude = data[0].lon;
       //add the city to the prior search list and local storage
       count++;
+      numberCount++;
 
-      if (count <= 10) {
-        localStorage.setItem([count], cityName); // this is placed here as to check count value which is the key 
-        // so that the locale storage won't be filled indefinitely
-        $("#priorCities").append("<li>" + localStorage.getItem(count) + "</li>");
-      } else {
+      if(count > 10){
         count = 1;
-        localStorage.setItem([count], cityName);
-        $("#priorCities li:first").remove(); // removing the first list item which is the oldest one
-      }
+      } 
+      localStorage.setItem([count], cityName);
+
+      if (numberCount > 10){
+        $("#priorCities li:first").remove(); // removes first list item which is the oldest
+      } 
+      $("#priorCities").append("<li>" + localStorage.getItem(count) + "</li>");
 
 
       console.log(count);
@@ -63,20 +66,20 @@ $("#searchButton").on("click", function () {
 
           var forecastHum = data.main.humidity;
           var fcastHumEl = document.getElementById("forecastHum");
-          fcastHumEl.innerHTML = "Humidity: " + forecastHum + " %";
+          fcastHumEl.innerHTML = "Humidity: " +forecastHum+ " %";
 
           var forecastPres = data.main.pressure;
           var fcastPresEl = document.getElementById("forecastPres");
-          fcastPresEl.innerHTML = "Barometric Pressure: " + forecastPres + " mb";
+          fcastPresEl.innerHTML = "Barometric Pressure: " +forecastPres+ " mb";
 
           var forecastWind = data.wind.speed;
           var fcastWindEl = document.getElementById("forecastWind");
-          fcastWindEl.innerHTML = "Wind Speed: " + forecastWind + " mph";
+          fcastWindEl.innerHTML = "Wind Speed: " +forecastWind+ " mph";
 
           var forecastSkies = data.weather[0].main;
           var forecastSkiesIcon = data.weather[0].icon;
           var forecastSkiesIconEl = document.getElementById("forecastSkiesIcon");
-          var iconsURL = "https://openweathermap.org/img/wn/" + forecastSkiesIcon + "@2x.png"
+          var iconsURL = "https://openweathermap.org/img/wn/" +forecastSkiesIcon+ "@2x.png"
           forecastSkiesIconEl.setAttribute("src", iconsURL);
           var fcastSkiesEl = document.getElementById("forecastSkies");
           fcastSkiesEl.innerHTML = forecastSkies;
