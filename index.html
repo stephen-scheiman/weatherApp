@@ -12,7 +12,7 @@
   </head>
   <body>
     <header>
-    <div class="col-12 text-center">
+    <div class="col-12 text-center" id="headerBox">
       <h1>Stephen's Weather Dashboard</h1>
     </div>
   </header>
@@ -21,20 +21,20 @@
         <h2>Location</h2>
         <form>  
             <div class="mb-3">
-            <label for="locationField" class="form-label">Search Location</label>
+            <label for="locationField" class="form-label" id="searchLabel">Search Location</label>
             <input type="text" class="form-control" id="locationField" name="locationField">
             <div id="locationHelp" class="form-text">Input City Name</div>
           </div>
         </form>
         <button type="button" class="btn btn-primary" id="searchButton">Search</button>
-        <h6>Prior Cities</h6>
+        <h5>Previous Locations</h5>
         <ul id="priorCities"></ul>
       </div>
 
       <div class="col-10" id="forecastBox">
         <div class="card" style="width: 100%;">
             <div class="card-body" id="forecastCard">
-              <h5 class="card-title" id="location">Current Weather Conditions</h5>
+              <h3 class="card-title" id="location">Current Weather Conditions</h3>
               <img id="forecastSkiesIcon">
               <p class="card-text" id="forecastSkies"></p>
               <p class="card-text" id="forecastTemp"></p>
@@ -44,7 +44,7 @@
             </div>
 
         <div class="row">
-            <h2>Five Day Forecast</h2>
+            <h3>Five Day Forecast</h3>
             <div class="container" id="fiveDayForecastBox">
               <div class="card" style="width: 18rem;" id="fiveDayCardOne">
                 <img class="card-img-top">

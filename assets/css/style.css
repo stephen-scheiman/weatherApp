@@ -1,25 +1,40 @@
-#searchButton {
-    margin-bottom: 50px;
+#headerBox {
+    background-color: blue;
+    color: white;
+    padding-bottom: 20px;
 }
 
-#forecastBox{
+#locationBox{
+    padding-top: 15px;
+}
+
+#searchButton {
+    margin-bottom: 35px;
+}
+
+#priorCities {
+    text-align: start;
+    margin-top: 15px;
+    text-decoration: none;
+}
+#forecastBox {
     margin-bottom: 100px;
 }
 
-#forecastCard{
-    margin-bottom: 10px;
-    height: 300px;
+#locationField {
+    margin-left: 10px;;
 }
 
-#fiveDayForecastBox{
+#forecastCard {
+    margin-bottom: 35px;
+    height: 300px;
+    line-height: normal;
+}
+
+#fiveDayForecastBox {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-}
-
-#priorCities{
-    text-align: start;
-    margin-top: 50px;
 }
 
 .card-text {
@@ -52,4 +67,8 @@
 .card img {
    max-width: 50%;
    height: auto;
+}
+
+#searchLabel{
+    font-size: larger;
 }

@@ -68,7 +68,7 @@ $(document).ready(function () {
 
             var forecastHum = data.main.humidity;
             var fcastHumEl = document.getElementById("forecastHum");
-            fcastHumEl.innerHTML = "Humidity: " + forecastHum + " %";
+            fcastHumEl.innerHTML = "Humidity: " + forecastHum + "%";
 
             var forecastPres = data.main.pressure;
             var fcastPresEl = document.getElementById("forecastPres");
@@ -91,6 +91,7 @@ $(document).ready(function () {
             var fcastSkiesEl = document.getElementById("forecastSkies");
             fcastSkiesEl.innerHTML = forecastSkies;
           });
+          //This var will hold the five-day forecast URL from lat/lon lookup
         var forecastURL =
           "https://api.openweathermap.org/data/2.5/forecast?lat=" +
           latitude +
@@ -103,12 +104,12 @@ $(document).ready(function () {
           })
           .then(function (data) {
             for (i = 0; i <= 39; i++) {
-              console.log(i);
               var forecastTime = dayjs(data.list[i].dt_txt).format("DD");
               var now = dayjs().format("DD");
+              //Compare the forecast day to today and find the forecast at noon for the next five days
               if (
                 forecastTime - now === 1 &&
-                data.list[i].dt_txt.indexOf("12:00:00") === 11
+                data.list[i].dt_txt.indexOf("12:00:00") === 11 //find the forecast for noon from the 3-hour data stream 
               ) {
                 var fiveDayFcastDateOne = dayjs(data.list[i].dt_txt).format(
                   "dd MM/DD/YY"
@@ -130,7 +131,7 @@ $(document).ready(function () {
                   "\r\n" +
                   "Humidity: " +
                   fiveDayFcastHumOne +
-                  " %" +
+                  "%" +
                   "\r\n" +
                   "Wind Speed " +
                   fiveDayFcastWindOne +
@@ -165,7 +166,7 @@ $(document).ready(function () {
                   "\r\n" +
                   "Humidity: " +
                   fiveDayFcastHumTwo +
-                  " %" +
+                  "%" +
                   "\r\n" +
                   "Wind Speed " +
                   fiveDayFcastWindTwo +
@@ -201,7 +202,7 @@ $(document).ready(function () {
                   "\r\n" +
                   "Humidity: " +
                   fiveDayFcastHumThree +
-                  " %" +
+                  "%" +
                   "\r\n" +
                   "Wind Speed " +
                   fiveDayFcastWindThree +
@@ -236,7 +237,7 @@ $(document).ready(function () {
                   "\r\n" +
                   "Humidity: " +
                   fiveDayFcastHumFour +
-                  " %" +
+                  "%" +
                   "\r\n" +
                   "Wind Speed " +
                   fiveDayFcastWindFour +
@@ -271,7 +272,7 @@ $(document).ready(function () {
                   "\r\n" +
                   "Humidity: " +
                   fiveDayFcastHumFive +
-                  " %" +
+                  "%" +
                   "\r\n" +
                   "Wind Speed " +
                   fiveDayFcastWindFive +
