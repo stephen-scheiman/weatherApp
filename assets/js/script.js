@@ -48,11 +48,11 @@ $(document).ready(function () {
         count++;
         numberCount++;
 
-        if (count > 7) {
+        if (count > 6) {
           count = 1;
         }
         localStorage.setItem([count], cityName);
-        if (numberCount > 5) {
+        if (numberCount > 6) {
           $("#priorCities li:first").remove(); // removes first list item which is the oldest
         }
         var listButton =
@@ -62,6 +62,7 @@ $(document).ready(function () {
           .children()
           .children(0)
           .attr("class", "btn btn-primary listButton");
+
         $('input[name="locationField"]').val("");
 
         getCurrentConditions(latitude, longitude, cityName);
