@@ -45,7 +45,6 @@
     white-space: pre;
     align-items: center;
 }
-
 #fiveDayCardTwo {
     white-space: pre;
     align-items: center;
@@ -71,4 +70,16 @@
 
 #searchLabel{
     font-size: larger;
+}
+
+.listButton {
+    background-color: rgb(0, 123, 255);
+    color: white;
+    border-radius: 5px;
+    width: 110%;
+}
+
+ul li {
+    list-style-type: none;
+    margin-left: -5px;
 }

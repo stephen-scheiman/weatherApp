@@ -2,7 +2,10 @@ $(document).ready(function () {
   var storageCount = localStorage.length;
 
   for (i = 1; i <= storageCount; i++) {
-    $("#priorCities").append("<li>" + localStorage.getItem(i) + "</li>");
+    var listButton = "<li><button>" + localStorage.getItem(i) + "</li></button>"
+    $("#priorCities").append(listButton);
+    console.log($("#priorCities").children(i));
+   $("#priorCities").children(i).children(0).attr("class", "listButton");
   }
   var count = storageCount;
   var numberCount = storageCount;
@@ -41,9 +44,12 @@ $(document).ready(function () {
         if (numberCount > 10) {
           $("#priorCities li:first").remove(); // removes first list item which is the oldest
         }
-        $("#priorCities").append(
-          "<li>" + localStorage.getItem(count) + "</li>"
-        );
+        var listButton = "<li><button>" + localStorage.getItem(count) + "</li></button>"
+        $("#priorCities").append(listButton);
+        console.log($("#priorCities").children().children(0));
+        $("#priorCities").children().children(0).attr("class", "listButton");
+    
+        
 
         $('input[name="locationField"]').val("");
         //This variable will hold the current conditions for the searched city
