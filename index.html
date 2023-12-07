@@ -10,28 +10,28 @@
     />
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
+
   <body>
     <header>
     <div class="col-12 text-center" id="headerBox">
       <h1>Stephen's Weather Dashboard</h1>
     </div>
   </header>
+  <!-- Location Search and List Box -->
     <div class="row gx-5 mb-3 text-center" id="firstRowHeader">
       <div class="col-2" id="locationBox">
         <h2>Location</h2>
-        <form>  
-            <div class="mb-3">
+        <form>
             <label for="locationField" class="form-label" id="searchLabel">Search Location</label>
             <input type="text" class="form-control" id="locationField" name="locationField">
             <div id="locationHelp" class="form-text">Input City Name</div>
-          </div>
         </form>
         <button type="button" class="btn btn-primary" id="searchButton">Search</button>
         <h5>Previous Locations</h5>
         <ul id="priorCities">
         </ul>
       </div>
-
+<!-- Current Conditions display box -->
       <div class="col-10" id="forecastBox">
         <div class="card" style="width: 100%;">
             <div class="card-body" id="forecastCard">
@@ -42,22 +42,24 @@
               <p class="card-text" id="forecastHum"></p>
               <p class="card-text" id="forecastPres"></p>
               <p class="card-text" id="forecastWind"></p>
+              <p class="card-text" id="forecastWindDir"></p>
             </div>
-
+<!-- Five Day Forecast display box -->
         <div class="row">
-            <h3>Five Day Forecast</h3>
+            <h4>Five Day Forecast</h4>
             <div class="container" id="fiveDayForecastBox">
+              <!-- Individual display boxes for Five Day -->
               <div class="card" style="width: 18rem;" id="fiveDayCardOne">
                 <img class="card-img-top">
                 <div class="card-body">
-                  <h5 class="card-title"></h5>
+                  <h6 class="card-title"></h6>
                   <p class="card-text"></p>
                 </div>
               </div>
               <div class="card" style="width: 18rem;" id="fiveDayCardTwo">
                 <img class="card-img-top">
                 <div class="card-body">
-                  <h5 class="card-title"></h5>
+                  <h6 class="card-title"></h6>
                   <p class="card-text"></p>
                   
                 </div>
@@ -65,7 +67,7 @@
               <div class="card" style="width: 18rem;" id="fiveDayCardThree">
                 <img class="card-img-top">
                 <div class="card-body">
-                  <h5 class="card-title"></h5>
+                  <h6 class="card-title"></h6>
                   <p class="card-text"></p>
                 
                 </div>
@@ -73,7 +75,7 @@
               <div class="card" style="width: 18rem;" id="fiveDayCardFour">
                 <img class="card-img-top">
                 <div class="card-body">
-                  <h5 class="card-title"></h5>
+                  <h6 class="card-title"></h6>
                   <p class="card-text"></p>
                   
                 </div>
@@ -81,7 +83,7 @@
               <div class="card" style="width: 18rem;" id="fiveDayCardFive">
                 <img class="card-img-top">
                 <div class="card-body">
-                  <h5 class="card-title"></h5>
+                  <h6 class="card-title"></h6>
                   <p class="card-text"></p>
                   
                 </div>
@@ -90,6 +92,7 @@
           </div>
       </div>
     </div>
+
     <script
       src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
       integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="

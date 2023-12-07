@@ -5,7 +5,7 @@ $(document).ready(function () {
     var listButton = "<li><button>" + localStorage.getItem(i) + "</li></button>"
     $("#priorCities").append(listButton);
     console.log($("#priorCities").children(i));
-   $("#priorCities").children(i).children(0).attr("class", "listButton");
+   $("#priorCities").children(i).children(0).attr("class", "btn btn-primary listButton");
   }
   var count = storageCount;
   var numberCount = storageCount;
@@ -47,7 +47,7 @@ $(document).ready(function () {
         var listButton = "<li><button>" + localStorage.getItem(count) + "</li></button>"
         $("#priorCities").append(listButton);
         console.log($("#priorCities").children().children(0));
-        $("#priorCities").children().children(0).attr("class", "listButton");
+        $("#priorCities").children().children(0).attr("class", "btn btn-primary listButton");
     
         
 
@@ -67,10 +67,10 @@ $(document).ready(function () {
             var locationEl = document.getElementById("location");
             locationEl.innerHTML = "Current Weather Conditions in " + cityName;
 
-            var forecastTemp = data.main.temp;
+            var forecastTemp = Math.round(data.main.temp);
             var fcastTempEl = document.getElementById("forecastTemp");
             fcastTempEl.innerHTML =
-              "Temperature: " + forecastTemp + " degrees Farenheit";
+              "Temperature: " + forecastTemp + " &degF";
 
             var forecastHum = data.main.humidity;
             var fcastHumEl = document.getElementById("forecastHum");
@@ -81,9 +81,31 @@ $(document).ready(function () {
             fcastPresEl.innerHTML =
               "Barometric Pressure: " + forecastPres + " mb";
 
-            var forecastWind = data.wind.speed;
-            var fcastWindEl = document.getElementById("forecastWind");
-            fcastWindEl.innerHTML = "Wind Speed: " + forecastWind + " mph";
+            // var forecastWind = data.wind.speed;
+            // var fcastWindEl = document.getElementById("forecastWind");
+            // fcastWindEl.innerHTML = "Wind Speed: " + forecastWind + " mph";
+
+            var forecastWindDir = data.wind.deg;
+            if (forecastWindDir === 0 || forecastWindDir === 360){
+              var forecastWindDirWord = "North"; 
+            } else if (forecastWindDir > 0 && forecastWindDir < 90){
+              var forecastWindDirWord = "Northeast";
+            } else if (forecastWindDir === 90){
+              var forecastWindDirWord = "East";
+            } else if (forecastWindDir > 90 && forecastWindDir <180){
+              var forecastWindDirWord = "Southeast";
+            } else if (forecastWindDir === 180){
+              var forecastWindDirWord = "South";
+            } else if (forecastWindDir > 180 && forecastWindDir < 270){
+              var forecastWindDirWord = "Southwest";
+            } else if (forecastWindDir === 270){
+              var forecastWindDirWord = "West";
+            } else if (forecastWindDir > 270 && forecastWindDir < 360){
+              var forecastWindDirWord = "Northwest";
+            }
+            var fcastWindDirEl = document.getElementById("forecastWindDir");
+            var forecastWind = Math.round(data.wind.speed);
+            fcastWindDirEl.innerHTML = "Winds are out of the " + forecastWindDirWord + " at " + forecastWind + " miles per hour";
 
             var forecastSkies = data.weather[0].main;
             var forecastSkiesIcon = data.weather[0].icon;
@@ -120,9 +142,9 @@ $(document).ready(function () {
                 var fiveDayFcastDateOne = dayjs(data.list[i].dt_txt).format(
                   "dd MM/DD/YY"
                 );
-                var fiveDayFcastTempOne = data.list[i].main.temp;
+                var fiveDayFcastTempOne = Math.round(data.list[i].main.temp);
                 var fiveDayFcastHumOne = data.list[i].main.humidity;
-                var fiveDayFcastWindOne = data.list[i].wind.speed;
+                var fiveDayFcastWindOne = Math.round(data.list[i].wind.speed);
                 var fiveDayForecastSkiesIconOne = data.list[i].weather[0].icon;
                 var fiveDayIconsURLOne =
                   "https://openweathermap.org/img/wn/" +
@@ -133,7 +155,7 @@ $(document).ready(function () {
                 fiveDayFcastCardOneEl.children[1].children[1].innerHTML =
                   "Temp: " +
                   fiveDayFcastTempOne +
-                  " deg F" +
+                  " &degF" +
                   "\r\n" +
                   "Humidity: " +
                   fiveDayFcastHumOne +
@@ -155,9 +177,9 @@ $(document).ready(function () {
                 var fiveDayFcastDateTwo = dayjs(data.list[i].dt_txt).format(
                   "dd MM/DD/YY"
                 );
-                var fiveDayFcastTempTwo = data.list[i].main.temp;
+                var fiveDayFcastTempTwo = Math.round(data.list[i].main.temp);
                 var fiveDayFcastHumTwo = data.list[i].main.humidity;
-                var fiveDayFcastWindTwo = data.list[i].wind.speed;
+                var fiveDayFcastWindTwo = Math.round(data.list[i].wind.speed);
                 var fiveDayForecastSkiesIconTwo = data.list[i].weather[0].icon;
                 var fiveDayIconsURLTwo =
                   "https://openweathermap.org/img/wn/" +
@@ -168,7 +190,7 @@ $(document).ready(function () {
                 fiveDayFcastCardTwoEl.children[1].children[1].innerHTML =
                   "Temp: " +
                   fiveDayFcastTempTwo +
-                  " deg F" +
+                  " &degF" +
                   "\r\n" +
                   "Humidity: " +
                   fiveDayFcastHumTwo +
@@ -190,9 +212,9 @@ $(document).ready(function () {
                 var fiveDayFcastDateThree = dayjs(data.list[i].dt_txt).format(
                   "dd MM/DD/YY"
                 );
-                var fiveDayFcastTempThree = data.list[i].main.temp;
+                var fiveDayFcastTempThree = Math.round(data.list[i].main.temp);
                 var fiveDayFcastHumThree = data.list[i].main.humidity;
-                var fiveDayFcastWindThree = data.list[i].wind.speed;
+                var fiveDayFcastWindThree = Math.round(data.list[i].wind.speed);
                 var fiveDayForecastSkiesIconThree =
                   data.list[i].weather[0].icon;
                 var fiveDayIconsURLThree =
@@ -204,7 +226,7 @@ $(document).ready(function () {
                 fiveDayFcastCardThreeEl.children[1].children[1].innerHTML =
                   "Temp: " +
                   fiveDayFcastTempThree +
-                  " deg F" +
+                  " &degF" +
                   "\r\n" +
                   "Humidity: " +
                   fiveDayFcastHumThree +
@@ -226,9 +248,9 @@ $(document).ready(function () {
                 var fiveDayFcastDateFour = dayjs(data.list[i].dt_txt).format(
                   "dd MM/DD/YY"
                 );
-                var fiveDayFcastTempFour = data.list[i].main.temp;
+                var fiveDayFcastTempFour = Math.round(data.list[i].main.temp);
                 var fiveDayFcastHumFour = data.list[i].main.humidity;
-                var fiveDayFcastWindFour = data.list[i].wind.speed;
+                var fiveDayFcastWindFour = Math.round(data.list[i].wind.speed);
                 var fiveDayForecastSkiesIconFour = data.list[i].weather[0].icon;
                 var fiveDayIconsURLFour =
                   "https://openweathermap.org/img/wn/" +
@@ -239,7 +261,7 @@ $(document).ready(function () {
                 fiveDayFcastCardFourEl.children[1].children[1].innerHTML =
                   "Temp: " +
                   fiveDayFcastTempFour +
-                  " deg F" +
+                  " &degF" +
                   "\r\n" +
                   "Humidity: " +
                   fiveDayFcastHumFour +
@@ -261,9 +283,9 @@ $(document).ready(function () {
                 var fiveDayFcastDateFive = dayjs(data.list[i].dt_txt).format(
                   "dd MM/DD/YY"
                 );
-                var fiveDayFcastTempFive = data.list[i].main.temp;
+                var fiveDayFcastTempFive = Math.round(data.list[i].main.temp);
                 var fiveDayFcastHumFive = data.list[i].main.humidity;
-                var fiveDayFcastWindFive = data.list[i].wind.speed;
+                var fiveDayFcastWindFive = Math.round(data.list[i].wind.speed);
                 var fiveDayForecastSkiesIconFive = data.list[i].weather[0].icon;
                 var fiveDayIconsURLFive =
                   "https://openweathermap.org/img/wn/" +
@@ -274,7 +296,7 @@ $(document).ready(function () {
                 fiveDayFcastCardFiveEl.children[1].children[1].innerHTML =
                   "Temp: " +
                   fiveDayFcastTempFive +
-                  " deg F" +
+                  " &degF" +
                   "\r\n" +
                   "Humidity: " +
                   fiveDayFcastHumFive +
