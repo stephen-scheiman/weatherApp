@@ -11,9 +11,8 @@
 
 #searchButton {
     margin-bottom: 25px;
-    width: 100%;
-    margin-left: 20px;
-    /* opacity: .25; */
+    width: 110%;
+    margin-left: 10px;
 }
 
 #priorCities {
@@ -22,7 +21,7 @@
 }
 
 #locationField {
-    margin-left: 10px;;
+    width: 115%;
 }
 
 #forecastCard {
@@ -85,12 +84,12 @@
 }
 
 .listButton {
-    width: 110%;
+    width: 120%;
 }
 
 ul li {
     list-style-type: none;
-    margin-left: -10px;
+    margin-left: -20px;
     margin-bottom: 10px;
 }
 
@@ -123,4 +122,13 @@ form {
     text-align: center;
     margin-top: -50px;
     margin-bottom: -20px;
+}
+
+h5 {
+    margin-left: 50px;
+}
+
+h2 {
+    margin-left: 50px;
+    margin-top: 5px;
 }
