@@ -1,24 +1,23 @@
 #headerBox {
-    background-color: blue;
+    background-color: rgb(0, 94, 255);
     color: white;
     padding-bottom: 20px;
+    padding-top: 10px;
 }
 
 #locationBox{
-    padding-top: 15px;
+    padding-top: 10px;
 }
 
 #searchButton {
-    margin-bottom: 35px;
+    margin-bottom: 25px;
+    width: 100%;
+    margin-left: 20px;
 }
 
 #priorCities {
     text-align: start;
     margin-top: 15px;
-    text-decoration: none;
-}
-#forecastBox {
-    margin-bottom: 100px;
 }
 
 #locationField {
@@ -28,43 +27,55 @@
 #forecastCard {
     margin-bottom: 35px;
     height: 300px;
-    line-height: normal;
+    line-height: 16px;
+    text-align: start;
 }
 
 #fiveDayForecastBox {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    height: 200px;
 }
 
 .card-text {
-    line-height: normal;
+    line-height: 16px;
+    align-items: start;
 }
 
 #fiveDayCardOne {
     white-space: pre;
     align-items: center;
+    font-size: small;
+    text-align: start;
 }
 #fiveDayCardTwo {
     white-space: pre;
     align-items: center;
+    font-size: small;
+    text-align: start;
 }
 #fiveDayCardThree {
     white-space: pre;
     align-items: center;
+    font-size: small;
+    text-align: start;
 }
 #fiveDayCardFour {
     white-space: pre;
     align-items: center;
+    font-size: small;
+    text-align: start;
 }
 #fiveDayCardFive {
     white-space: pre;
     align-items: center;
+    font-size: small;
+    text-align: start;
 }
 
-
 .card img {
-   max-width: 50%;
+   max-width: 40%;
    height: auto;
 }
 
@@ -73,13 +84,42 @@
 }
 
 .listButton {
-    background-color: rgb(0, 123, 255);
-    color: white;
-    border-radius: 5px;
     width: 110%;
 }
 
 ul li {
     list-style-type: none;
-    margin-left: -5px;
+    margin-left: -10px;
+    margin-bottom: 10px;
+}
+
+form {
+    margin-left: 10px;
+    width: 100%;
+}
+
+#fiveDayCardOne .card-title {
+    text-align: center;
+    margin-top: -50px;
+    margin-bottom: -20px;
+}
+#fiveDayCardTwo .card-title {
+    text-align: center;
+    margin-top: -50px;
+    margin-bottom: -20px;
+}
+#fiveDayCardThree .card-title {
+    text-align: center;
+    margin-top: -50px;
+    margin-bottom: -20px;
+}
+#fiveDayCardFour .card-title {
+    text-align: center;
+    margin-top: -50px;
+    margin-bottom: -20px;
+}
+#fiveDayCardFive .card-title {
+    text-align: center;
+    margin-top: -50px;
+    margin-bottom: -20px;
 }
