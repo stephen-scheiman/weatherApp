@@ -4,7 +4,6 @@ $(document).ready(function () {
   for (i = 1; i <= storageCount; i++) {
     var listButton = "<li><button>" + localStorage.getItem(i) + "</li></button>"
     $("#priorCities").append(listButton);
-    console.log($("#priorCities").children(i));
    $("#priorCities").children(i).children(0).attr("class", "btn btn-primary listButton");
   }
   var count = storageCount;
@@ -46,7 +45,6 @@ $(document).ready(function () {
         }
         var listButton = "<li><button>" + localStorage.getItem(count) + "</li></button>"
         $("#priorCities").append(listButton);
-        console.log($("#priorCities").children().children(0));
         $("#priorCities").children().children(0).attr("class", "btn btn-primary listButton");
     
         
