@@ -13,8 +13,11 @@ $(document).ready(function () {
   var count = storageCount;
   var numberCount = storageCount;
 
-  //All the action happens when the Search button is clicked
-  $("#searchButton").on("click", getCityName);
+  $("#searchButton").on("click", getCityName); //user inputed city name
+
+  $(".listButton").on("click", function(){ //user clicked on a list button
+    getLatLon(this.innerHTML);
+  })
 
   function getCityName() {
     // Get the city name from the user
@@ -23,6 +26,10 @@ $(document).ready(function () {
     if (!cityName) {
       return;
     }
+    getLatLon (cityName);
+  }
+  function getLatLon (cityName){ //get the coordinates of the city name from API
+    console.log (cityName);
     // This variable will hold the results of the city name to lat/lon conversion
     var geoCodeURL =
       "https://api.openweathermap.org/geo/1.0/direct?q=" +
@@ -41,11 +48,11 @@ $(document).ready(function () {
         count++;
         numberCount++;
 
-        if (count > 10) {
+        if (count > 7) {
           count = 1;
         }
         localStorage.setItem([count], cityName);
-        if (numberCount > 10) {
+        if (numberCount > 5) {
           $("#priorCities li:first").remove(); // removes first list item which is the oldest
         }
         var listButton =
@@ -57,10 +64,11 @@ $(document).ready(function () {
           .attr("class", "btn btn-primary listButton");
         $('input[name="locationField"]').val("");
 
-        getCurrentConditions(latitude, longitude);
+        getCurrentConditions(latitude, longitude, cityName);
       });
+    }
 
-    function getCurrentConditions(latitude, longitude) {
+    function getCurrentConditions(latitude, longitude,cityName) {
       //This variable will hold the current conditions for the searched city
       var currentConditionsURL =
         "https://api.openweathermap.org/data/2.5/weather?lat=" +
@@ -74,7 +82,7 @@ $(document).ready(function () {
         })
         .then(function (data) {
           var locationEl = document.getElementById("location");
-          locationEl.innerHTML = "Current Weather Conditions in " + cityName;
+          locationEl.innerHTML = "Current Weather Conditions in " + cityName; //pull this variable from API
 
           var forecastTemp = Math.round(data.main.temp);
           var fcastTempEl = document.getElementById("forecastTemp");
@@ -329,4 +337,4 @@ $(document).ready(function () {
         });
     }
   }
-});
+);
