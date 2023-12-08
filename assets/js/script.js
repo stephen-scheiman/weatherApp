@@ -67,7 +67,7 @@ $(document).ready(function () {
       });
   }
 
-  $(".listButton").on("click", function () {
+  $(".listButton").on('click', function () {
     //user clicked on a list button
     console.log("click");
     var cityName = this.innerHTML;
