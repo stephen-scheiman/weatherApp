@@ -47,7 +47,7 @@ $(document).ready(function () {
         if (count > 6) {
           count = 1;
         }
-        
+
         localStorage.setItem([count], cityName);
 
         if (numberCount > 6) {
@@ -67,7 +67,7 @@ $(document).ready(function () {
       });
   }
 
-  $(".listButton").on('click', function () {
+  $("#priorCities").on('click','.listButton', function () {
     //user clicked on a list button
     console.log("click");
     var cityName = this.innerHTML;
