@@ -31,7 +31,7 @@ THEN I am again presented with current and future conditions for that city
 
 ## Screenshot
 
-![alt text](./assets/img/screenshot.png)
+![alt text](./assets/img/Screenshot.png)
 
 ## Application Repo
 
