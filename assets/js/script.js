@@ -66,10 +66,9 @@ $(document).ready(function () {
         getCurrentConditions(latitude, longitude, cityName);
       });
   }
-
-  $("#priorCities").on('click','.listButton', function () {
+  //Thank you to my TA Sam for this!
+  $("#priorCities").on("click", ".listButton", function () {
     //user clicked on a list button
-    console.log("click");
     var cityName = this.innerHTML;
     var geoCodeURL =
       "https://api.openweathermap.org/geo/1.0/direct?q=" +
