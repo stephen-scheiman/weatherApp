@@ -26,7 +26,6 @@ $(document).ready(function () {
   }
   function getLatLon(cityName) {
     //get the coordinates of the city name from API
-    console.log(cityName);
     // This variable will hold the results of the city name to lat/lon conversion
     var geoCodeURL =
       "https://api.openweathermap.org/geo/1.0/direct?q=" +
@@ -60,16 +59,30 @@ $(document).ready(function () {
           .children(0)
           .attr("class", "btn btn-primary listButton");
 
-        $(".listButton").on("click", function () {
-          //user clicked on a list button
-          getLatLon(this.innerHTML);
-        });
-
         $('input[name="locationField"]').val("");
 
         getCurrentConditions(latitude, longitude, cityName);
       });
   }
+  $(".listButton").on("click", function () {
+    //user clicked on a list button
+    var cityName = this.innerHTML;
+    var geoCodeURL =
+      "https://api.openweathermap.org/geo/1.0/direct?q=" +
+      cityName +
+      "&limit=5&appid=46829ce23a8c173b9cc4d4f2145d78e5";
+    //Get the data from the api
+    fetch(geoCodeURL)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        //store the returned lat/long
+        var latitude = data[0].lat;
+        var longitude = data[0].lon;
+        getCurrentConditions(latitude, longitude, cityName);
+      });
+  });
 
   function getCurrentConditions(latitude, longitude, cityName) {
     //This variable will hold the current conditions for the searched city
