@@ -47,7 +47,9 @@ $(document).ready(function () {
         if (count > 6) {
           count = 1;
         }
+        
         localStorage.setItem([count], cityName);
+
         if (numberCount > 6) {
           $("#priorCities li:first").remove(); // removes first list item which is the oldest
         }
