@@ -27,6 +27,7 @@ THEN I am again presented with current and future conditions for that city
 1- Attaching events to elements that don't yet exist (this was big, thanks to Sam, my T/A)
 2- Getting more comfortable with bootstrap
 3- Retrieving and parsing data from APIs
+4- Having a stranger fix a bug in my code :-)
 ```
 
 ## Screenshot
