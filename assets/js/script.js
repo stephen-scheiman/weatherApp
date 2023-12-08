@@ -3,7 +3,7 @@ $(document).ready(function () {
 
   for (i = 1; i <= storageCount; i++) {
     var listButton =
-      "<li><button>" + localStorage.getItem(i) + "</li></button>";
+      "<li><button>" + localStorage.getItem(i) + "</button></li>";
     $("#priorCities").append(listButton);
     $("#priorCities")
       .children(i)
@@ -54,7 +54,7 @@ $(document).ready(function () {
           $("#priorCities li:first").remove(); // removes first list item which is the oldest
         }
         var listButton =
-          "<li><button>" + localStorage.getItem(count) + "</li></button>";
+          "<li><button>" + localStorage.getItem(count) + "</button></li>";
         $("#priorCities").append(listButton);
         $("#priorCities")
           .children()
