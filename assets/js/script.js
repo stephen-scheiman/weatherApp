@@ -64,8 +64,10 @@ $(document).ready(function () {
         getCurrentConditions(latitude, longitude, cityName);
       });
   }
+
   $(".listButton").on("click", function () {
     //user clicked on a list button
+    console.log("click");
     var cityName = this.innerHTML;
     var geoCodeURL =
       "https://api.openweathermap.org/geo/1.0/direct?q=" +

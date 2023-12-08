@@ -1,5 +1,14 @@
 body {
-    background-color: beige;
+    background-color: lightslategray;
+}
+
+h2 {
+    margin-left: 50px;
+    margin-top: 5px;
+}
+
+h5 {
+    margin-left: 30px;
 }
 
 #headerBox {
@@ -7,11 +16,14 @@ body {
     color: white;
     padding-bottom: 20px;
     padding-top: 10px;
+    font-family: 'Ephesis', cursive;
 }
 
 #locationBox{
     padding-top: 10px;
-    
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 #searchButton {
@@ -86,6 +98,7 @@ body {
 
 #searchLabel{
     font-size: larger;
+    margin-left: 20px;
 }
 
 .listButton {
@@ -129,11 +142,4 @@ form {
     margin-bottom: -20px;
 }
 
-h5 {
-    margin-left: 50px;
-}
 
-h2 {
-    margin-left: 50px;
-    margin-top: 5px;
-}
